@@ -1,47 +1,31 @@
 Rails.application.routes.draw do
-  get 'commments/index'
 
-  get 'commments/new'
 
-  get 'commments/create'
+  get 'sessions/index'
 
-  get 'commments/show'
+  get 'sessions/new'
 
-  get 'commments/edit'
+  get 'sessions/create'
 
-  get 'commments/update'
+  get 'sessions/show'
 
-  get 'commments/destroy'
+  get 'sessions/edit'
 
-  get 'comments/comment'
+  get 'sessions/update'
 
-  get 'posts/index'
+  get 'sessions/destroy'
 
-  get 'posts/new'
-
-  get 'posts/create'
-
-  get 'posts/show'
-
-  get 'posts/edit'
-
-  get 'posts/update'
-
-  get 'posts/destroy'
+  get 'home/index'
 
   get 'users/index'
 
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/show'
-
-  get 'users/edit'
-
-  get 'users/update'
-
-  get 'users/destroy'
+  resources :users
+  resources :posts
+  resources :sessions, except: [:destroy]
+  delete '/sessions' => 'sessions#destroy', as: :logout
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+root 'home#index'
+
 end
