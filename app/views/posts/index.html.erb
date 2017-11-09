@@ -1,2 +1,30 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 header background">
+      <h1>Adventures in Italy</h1>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 posts background">
+      <div class="padding">
+      <h4>Blog Posts</h4>
+     <!--  <br> -->
+        <div class="padding">
+         <% @post_all.each do |post| %>
+          <p class="font"><%= post.title %></p>
+          <p><%= post.content %></p>
+          <p class="small"><%= post.created_at.to_formatted_s(:short) %></p>
+         <% end %>
+       </div> 
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

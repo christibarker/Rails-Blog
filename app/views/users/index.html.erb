@@ -1,2 +1,79 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p top">
+		  <div class="header_two">
+         <h4><%= @user.name %>'s Profile</h4>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding">
+         <h4>Account Details</h4>
+          <p class="left">Email: <%= @user.email %> </p>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div>
+        <h4 class="padding_b">Posts</h4>
+        <div class="posts padding left">
+          <div>
+            <% @user.posts.each do |post| %>
+              <p class="font"><%= post.title %></p>
+              <p class="font"><%= post.content %></p>
+              <div class="small">
+                  <span>Posted by: <%= @user.name %> </span>
+                  <span>on <%= post.created_at.to_formatted_s(:short) %></span>
+                  <!-- <span class="reaction-button"></span>comment -->
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="background_p padding">
+        <h4 class="padding">Fellow Travelers</h4>
+          <div class="size">
+            <% @user_all.each do |user| %>
+              <p class="font top">
+                <a href="/show/<%= user.id %>"><%= user.name %></a></p>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding padding_b">
+      <a href="/profile" class="btn btn-primary">My Profile</a>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <!-- <div class="padding padding_b">
+      </div> -->
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
