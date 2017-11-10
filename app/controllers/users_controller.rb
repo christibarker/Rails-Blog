@@ -23,8 +23,9 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   end
 
   def show
-    @user_all = User.all
+    @user_one = current_user
     @user = User.find(params[:id])
+    @user_all = User.all.reject{|user| user == @user_one}
   end
 
   def edit

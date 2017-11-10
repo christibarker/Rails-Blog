@@ -32,14 +32,13 @@
     <div class="col">
     </div>
     <div class="col-6 background_p">
-      <% if user_signed_in_? %>
+      <% if user_signed_in_? && current_user == @user %>
         <div class="padding">
           <%= form_with model: @post do |f| %>
           <%= f.label :Title %>
           <%= f.text_field :title, placeholder: 'title', class: "form-control", id: "title" %>
-           <%= f.label :content %>
-          <%= f.text_field :content, placeholder: 'content', class: "form-control" %>
-          <%= f.password_field :password, placeholder: 'password', class: "form-control", id: "Password" %>
+           <%= f.label :Content %>
+          <%= f.text_field :content, placeholder: 'content' %>
             <%= f.submit "Create Post" %>
           <% end %>
         </div>
@@ -64,7 +63,7 @@
                   <span>Posted by: <%= @user.name %> </span>
                   <span>on <%= post.created_at.to_formatted_s(:short) %></span>
                   <!-- <span class="reaction-button"></span>comment -->
-                <%# link_to "Edit Post", edit_post_path(posts[:id]), class="format" %>
+                <%# link_to "Edit Post", edit_post_path(@post), class="format" %>
                 <!-- <img class="format" src="/img/edit.png" alt=""> -->
                 <%= link_to "Destroy", user, method: :delete %>
                 <!-- img class="format" src="/img/delete-icon.png" alt="" -->
@@ -80,7 +79,7 @@
           <div class="size">
             <% @user_all.each do |user| %>
               <p class="font">
-                <%= link_to user.name, user_path(user) %>
+                <%= link_to user.name, user %>
             <% end %></p>
           </div>
       </div>
@@ -92,10 +91,10 @@
     </div>
     <div class="col-6 background_p">
       <div class="padding padding_b">
-        <% if user_signed_in_? %>
+        <% if user_signed_in_? && current_user == @user %>
           <%= link_to "Edit Profile", edit_user_path %>
         <% else %>
-          <%= link_to "My Profile", @user %>
+          <%= link_to "My Profile", current_user %>
         <% end %>
       </div>
     </div>
