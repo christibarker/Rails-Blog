@@ -32,19 +32,18 @@
     <div class="col">
     </div>
     <div class="col-6 background_p">
-      <div class="padding">
-        <form action="/create_post" method="POST">
-          <div class="form-group">
-            <label for="text">New Title</label>
-            <input type="text" name="post[title]" class="form-control" id="title" aria-describedby="text" placeholder="title">
-          </div>
-          <div class="form-group">
-            <label for="text">New Post</label>
-            <input textarea= "maxlength 150" type= "text" name= "post[content]" class="form-control" id="content" placeholder="post">
-          </div>
-          <button type="submit" id="button_three" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
+      <% if user_signed_in_? %>
+        <div class="padding">
+          <%= form_with model: @post do |f| %>
+          <%= f.label :Title %>
+          <%= f.text_field :title, placeholder: 'title', class: "form-control", id: "title" %>
+           <%= f.label :content %>
+          <%= f.text_field :content, placeholder: 'content', class: "form-control" %>
+          <%= f.password_field :password, placeholder: 'password', class: "form-control", id: "Password" %>
+            <%= f.submit "Create Post" %>
+          <% end %>
+        </div>
+      <% end %>
      </div>
    <div class="col">
    </div>
@@ -58,19 +57,20 @@
         <h4>Your Posts</h4>
         <div class="posts padding left">
           <div>
-            <% @user.posts.each do |post| %>
-                <a href="/edit_posts/<%= post.id %>"><img class="format" src="/img/edit.png" alt=""></a>
-                <br>
-                <a href="/delete_post/<%= post.id %>"><img class="format" src="/img/delete-icon.png" alt=""></a>
-                <p class="font"><%= post.title %></p>
-                <p class="font"><%= post.content %></p>
-              <div class="small">
+            <% @user.post.each do |post| %>
+              <p><%= post.title %></p>
+              <p><%= post.content %></p>
+                <div class="small">
                   <span>Posted by: <%= @user.name %> </span>
                   <span>on <%= post.created_at.to_formatted_s(:short) %></span>
                   <!-- <span class="reaction-button"></span>comment -->
-              </div>
+                <%# link_to "Edit Post", edit_post_path(posts[:id]), class="format" %>
+                <!-- <img class="format" src="/img/edit.png" alt=""> -->
+                <%= link_to "Destroy", user, method: :delete %>
+                <!-- img class="format" src="/img/delete-icon.png" alt="" -->
             <% end %>
-            </div>
+           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -80,8 +80,8 @@
           <div class="size">
             <% @user_all.each do |user| %>
               <p class="font">
-                <a href="/show/<%= user.id %>"><%= user.name %></a></p>
-            <% end %>
+                <%= link_to user.name, user_path(user) %>
+            <% end %></p>
           </div>
       </div>
     </div>
@@ -92,9 +92,11 @@
     </div>
     <div class="col-6 background_p">
       <div class="padding padding_b">
-        <div>
-        <a href="/edit_account" class="btn btn-primary"><strong>Edit Account</strong></a>
-      </div>
+        <% if user_signed_in_? %>
+          <%= link_to "Edit Profile", edit_user_path %>
+        <% else %>
+          <%= link_to "My Profile", @user %>
+        <% end %>
       </div>
     </div>
     <div class="col">

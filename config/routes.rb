@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  get 'users/index'
-
   resources :home
   resources :comments
   resources :users

@@ -13,22 +13,14 @@
     <div class="col">
     </div>
     <div class="col-6 background" >
-      <form action="/create_account" method="POST">
-         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="name" name="user[name]" class="form-control" id="name" placeholder="name">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" name="user[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <%= form_with model: @user do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, placeholder: 'name', class: "form-control", id: "name" %>
+        <%= f.text_field :email, placeholder: 'email', class: "form-control", id: "exampleInputEmail1", ariadescribedby: "emailHelp" %>
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" name="user[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <button type="submit" id="button" class="btn btn-primary">Create Account</button>
-      </form>
+        <%= f.password_field :password, placeholder: 'password', class: "form-control", id: "exampleInputPassword1" %>
+        <%= f.submit "Create User", id: "button", class: "btn btn-primary" %>
+      <% end %>
     </div>
     <div class="col">
     </div>
