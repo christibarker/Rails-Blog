@@ -3,11 +3,12 @@ class UsersController < ApplicationController
 before_action :authenticate, only: [:edit, :update, :destroy]  
 
   def index
-    @user = User.all
+    @user_all = User.all
   end
 
   def new
     @user = User.new
+    # byebug #stop here interact with this line in the terminal
   end
 
   def create
@@ -22,6 +23,7 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   end
 
   def show
+    @user_all = User.all
     @user = User.find(params[:id])
   end
 
@@ -41,7 +43,7 @@ before_action :authenticate, only: [:edit, :update, :destroy]
 private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit(:name, :email, :password)
   end
   
 end

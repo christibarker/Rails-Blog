@@ -14,39 +14,36 @@
     <nav>
       <ul class="nav">
         <% if user_signed_in_? %>
-          <li class="nav-item">
-          <a class="nav-link active" href="home_index_path">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="user_path">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="blog">Blog</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/show">Contributors</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="logout_path">Sign Out</a>
-        </li>
-       <!--  <li class="nav-item">
-          <a class="nav-link" href="/show">Contributors</a>
-        </li> -->
-        <% else %>
-          <li class="nav-item">
-          <a class="nav-link active" href="home_index_path">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="user_path">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="post_index_path">Blog</a>
-        </li>
-           <li class="nav-item">
-            <a class="lp-navbar__button lp-navbar__button--fixed btn btn--secondary" href="new_session_path" id="sign_in_button">Sign In</a>
+            <li class="nav-item">
+              <%= link_to "Home", root_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <a class="lp-navbar__button lp-navbar__button--fixed btn btn--secondary" href="new_user_path" id="create_account_button">Create Account</a>
+             <%= link_to "Profile", user_path(user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+             <%= link_to "Blog", @post, class: "nav-link active" %>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/show">Contributors</a>
+          </li> -->
+          <li class="nav-item">
+             <%= link_to "Log Out", logout_path, method: :delete,  class: "nav-link" %>
+          </li>
+         <!--  <li class="nav-item">
+            <a class="nav-link" href="/show">Contributors</a>
+          </li> -->
+        <% else %>
+          <li class="nav-item">
+            <  <%= link_to "Home", root_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+           <%= link_to "Blog", @post, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_session_path, id:"sign_in_button", class: "lp-navbar__button lp-navbar__button--fixed btn btn--secondary" %>
+          </li>
+          <li class="nav-item">
+               <%= link_to "Create Account", new_user_path, id:"sign_in_button", class: "lp-navbar__button lp-navbar__button--fixed btn btn--secondary" %>
           </li>
         <% end %>
       </ul>
@@ -57,37 +54,38 @@
       <footer class="footer">
       <ul class="nav justify-content-center">
         <% if user_signed_in_? %>
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog">Blog</a>
-        </li>
-         <!-- <li class="nav-item">
-          <a class="nav-link" href="/show">Contributors</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="/sign_out">Sign Out</a>
-        </li>
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Profile", user_path(user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Blog", @post, class: "nav-link active" %>
+          </li>
+           <!-- <li class="nav-item">
+            <a class="nav-link" href="/show">Contributors</a>
+          </li> -->
+          <li class="nav-item">
+          <li class="nav-item">
+            <%= link_to "Log Out", logout_path, method: :delete,  class: "nav-link" %>
+          </li>
         <% else %>
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog">Blog</a>
-        </li>
-        <li class="nav-item">
-            <a class="lp-navbar__button lp-navbar__button--fixed btn btn--secondary" href="/sign_in" id="sign_in_button">Sign In</a>
-        </li>
-        <li class="nav-item">
-            <a class="lp-navbar__button lp-navbar__button--fixed btn btn--secondary" href="/create_account" id="create_account_button">Create Account</a>
-        </li>
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link active" %>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li> -->
+          <li class="nav-item">
+            <%= link_to "Blog", @post, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+               <%= link_to "Login", new_session_path, id:"sign_in_button", class: "lp-navbar__button lp-navbar__button--fixed btn btn--secondary" %>
+          </li>
+          <li class="nav-item">
+               <%= link_to "Create Account", new_user_path, id:"sign_in_button", class: "lp-navbar__button lp-navbar__button--fixed btn btn--secondary" %>
+          </li>
          <% end %>
       </ul>
     </footer>
