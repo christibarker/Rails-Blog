@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   	 	render 'users/show'
   	 else
   	 	# redirect_to new_session_path
-  	 	render 'sessions/new'
+  	 	render 'home/index'
   	end
 	end
 end
