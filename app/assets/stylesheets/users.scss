@@ -1,3 +1,70 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/**************create_account.erb****************/
+
+.styling {
+	margin-top: 10%;
+	background-color: rgba(239, 229, 211, 0.6);
+	text-align: center;
+}
+
+.background {
+		background-color: rgba(239, 229, 211, 0.6);
+		padding: 3%;
+		/*opacity: 0.6;*/
+}
+
+#button {
+float: right;
+}
+
+/*/**************profile.erb****************/
+h4 {
+	font-weight: bold;
+}
+
+
+.header_two {
+	text-align: center;
+	margin-top: 3%;
+}
+
+.background_p {
+	background-color: rgba(239, 229, 211, 0.6);
+	text-align: center;
+	/*opacity: 0.6;*/
+}
+
+#button_three {
+	float: right;
+}
+
+.padding {
+	padding-top: 4%;
+}
+
+.padding_b {
+	padding-bottom: 3%;
+}
+
+.top {
+	margin-top: 5%;
+}
+
+#content {
+/*	width: auto;*/
+	height: 80px;
+}
+
+.size  {
+	height: 400px;
+	overflow: scroll;
+}
+
+.format {
+	height: 20px;
+	width: 20px;
+	float: right;
+}

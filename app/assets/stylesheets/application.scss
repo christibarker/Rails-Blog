@@ -16,3 +16,68 @@
  //add whatever style css page yopu use
 @import "bootstrap";
 @import "home";
+
+body {
+	font-family: fantasy;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.home {
+	background-image: url(/img/city_scape.jpg);
+}
+
+.profile {
+	background-image: url(/img/trevi_fountain.jpg);
+}
+
+.sign_in {
+	background-image: url(/img/tomb_of_unknown.jpg);
+}
+
+.edit_account {
+	background-image: url(/img/rome051.jpg);
+}
+
+.blog {
+	background-image: url(/img/vatican_courtyard.jpg);
+}
+
+.create_account {
+	background-image: url(/img/rome_122.jpg);
+}
+
+.show {
+	background-image: url(/img/rome_076.jpg);
+}
+
+.edit_posts {
+	background-image: url(/img/rome.jpg);
+}
+
+.update_posts {
+	background-image: url(/img/coluseum.jpg);
+}
+
+
+/**************layout.erb****************/
+
+.create_account_button :hover {
+	background-color: lightblue;
+	/*border: solid;
+	border-color: red;*/
+}
+
+.nav {
+	background-color: rgba(239, 229, 211, 0.6);
+}
+
+footer, .push {
+  height: 50px;
+  width: 100%;
+  z-index: 3;
+}
+
+footer {
+	background-color: rgba(239, 229, 211, 0.6);
+}
