@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(session_params)
     if @user
       session[:user_id] = @user.id
-      redirect_to users_path
+      redirect_to @user
     else
       flash[:alert] = 'email or password is incorrect'
       redirect_to new_session_path

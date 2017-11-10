@@ -37,8 +37,10 @@
           <%= form_with model: @post do |f| %>
           <%= f.label :Title %>
           <%= f.text_field :title, placeholder: 'title', class: "form-control", id: "title" %>
-          <%= f.text_field :email, placeholder: 'email', class: "form-control" %>
-          <%= f.password_field :password, placeholder: 'password', class: "form-control", id: "exampleInputPassword1" %>
+           <%= f.label :content %>
+          <%= f.text_field :content, placeholder: 'content', class: "form-control" %>
+          <%= f.password_field :password, placeholder: 'password', class: "form-control", id: "Password" %>
+            <%= f.submit "Create Post" %>
           <% end %>
         </div>
       <% end %>
@@ -91,7 +93,7 @@
     <div class="col-6 background_p">
       <div class="padding padding_b">
         <% if user_signed_in_? %>
-          <%= link_to "Edit Profile", edit_user_path(user) %>
+          <%= link_to "Edit Profile", edit_user_path %>
         <% else %>
           <%= link_to "My Profile", @user %>
         <% end %>

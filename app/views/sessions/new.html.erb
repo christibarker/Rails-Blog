@@ -14,18 +14,13 @@
     <div class="col">
     </div>
     <div class="col-6 background">
-		    <form action="/sign_in" method="POST">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" name="user[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" name="user[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          <small id="passwordHelp" class="form-text text-muted">Case Sensitive</small>
-        </div>
-        <button type="submit" id="button_two" class="btn btn-primary">Sign In</button>
-      </form>
+        <%= form_with url:sessions_path, scope: 'login' do |f| %>
+        <%= f.label :email %>
+        <%= f.text_field :email, placeholder: 'email', class: "form-control", id: "exampleInputEmail1", ariadescribedby: "emailHelp" %>
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: 'password', class: "form-control", id: "exampleInputPassword1" %>
+        <%= f.submit "Login", id: "button_two", class: "btn btn-primary" %>
+      <% end %>
     </div>
     <div class="col">
     </div>
