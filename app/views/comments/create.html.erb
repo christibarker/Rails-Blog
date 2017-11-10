@@ -1,2 +1,47 @@
-<h1>Commments#create</h1>
-<p>Find me in app/views/commments/create.html.erb</p>
+<!-- create comment -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p top">
+    	<div class="header_two">
+         <h4 >create comment </h4>
+    	</div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+<!-- end of row -->
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding">
+        <form action="/create_comment" method="POST">
+          <div class="form-group">
+            <label for="text">New Comment</label>
+            <input textarea= "maxlength 150" type= "text" name= "comment[content]" class="form-control" id="content" placeholder="comment">
+          </div>
+          <button type="submit" id="button_three" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+     </div>
+   <div class="col">
+   </div>
+  </div>
+  <!-- end of row -->
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding padding_b">
+        <div>
+        <a href="/edit_account" class="btn btn-primary"><strong>My Profile</strong></a>
+      </div>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

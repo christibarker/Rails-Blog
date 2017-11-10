@@ -1,2 +1,57 @@
-<h1>Commments#edit</h1>
-<p>Find me in app/views/commments/edit.html.erb</p>
+<!-- edit comment -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p top">
+    	<div class="header_two">
+		    <h2>Edit comments</h2>
+  		  <p>Enter the changes you wish to make in your comment.</p>
+    	</div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+<!-- end of row -->
+   <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding">
+       <form action="/update_post" method="POST">
+        <div class="form-group">
+          <label for="text">Update Comment</label>
+          <input textarea= "maxlength 150" type= "text" name= "comment[content]" class="form-control" id="content" value="<%= @post.content %>" placeholder="comment">
+        </div>
+        <button type="submit" id="button_three" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+<!-- end of row -->
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding padding_b">
+        <a class="btn btn-success" href="/delete_comment/<%= @post.id %>">Delete comment</a>
+      </div>
+     </div>
+     <div class="col">
+     </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding padding_b">
+        <a href="/profile" class="btn btn-primary"><strong>My Profile</strong></a>
+      </div>
+     </div>
+     <div class="col">
+     </div>
+  </div>
+</div>

@@ -1,2 +1,67 @@
-<h1>Users#update</h1>
-<p>Find me in app/views/users/update.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p top">
+    	<div class="header_two">
+		    <h2>Edit Profile</h2>
+  		  <p>Enter the changes you wish to make in your account.</p>
+        <p>Your current information</p>
+        <div class="left">
+           <p><strong>Name:</strong> <%= @user.name %></p>
+           <p><strong>Email:</strong> <%= @user.email %></p>
+           <p><strong>Password:</strong> <%= @user.password %></p>
+        </div>
+    	</div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+   <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding">
+        <form action="/edit_account" method="POST">
+        	<div class="form-group">
+	          <label for="name">Name</label>
+	          <input  type="name" name="user[name]" class="form-control" id="name" value="<%= @user.name %>" placeholder="name">
+       	  </div>
+        	<div class="form-group">
+	          <label for="exampleInputEmail1">Email address</label>
+	          <input value="<%= @user.email %>" type="email" name="user[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+       		</div>
+        	<div class="form-group">
+	          <label for="exampleInputPassword1">Password</label>
+	          <input value="<%= @user.password%>" type="password" name="user[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        	</div>
+        	<button type="submit" id="button" class="btn btn-primary">Update Account</button>
+      	</form>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+   <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding padding_b">
+        <a href="delete_account" class="btn btn-success">Delete Account</a>
+			</div>
+     </div>
+     <div class="col">
+     </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      <div class="padding padding_b">
+        <a href="/profile" class="btn btn-primary">My Profile</a>
+      </div>
+     </div>
+     <div class="col">
+     </div>
+  </div>
+</div>
