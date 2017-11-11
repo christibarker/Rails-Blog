@@ -16,6 +16,10 @@
  //add whatever style css page yopu use
 @import "bootstrap";
 @import "home";
+@import "posts";
+@import "sessions";
+@import "users";
+@import "comments";
 
 body {
 	font-family: fantasy;
@@ -23,9 +27,7 @@ body {
 	background-repeat: no-repeat;
 }
 
-.home {
-	background-image: url(/img/city_scape.jpg);
-}
+
 
 .profile {
 	background-image: url(/img/trevi_fountain.jpg);

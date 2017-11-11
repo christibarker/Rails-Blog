@@ -17,23 +17,27 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def show
+    @body_class = 'blog'
+    @user = current_user
     @post_all = Post.all
     @post = Post.find(params[:id])
   end
 
   def edit
+    @body_class = 'edit_posts'
     @post = Post.find(params[:id])
   end
 
   def update
+    @body_class = 'update_posts'
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to @post
+    redirect_to current_user
   end
 
   def destroy
      @post = Post.find(params[:id]).destroy
-     redirect_to post_path
+     redirect_to current_user
   end
 
   private

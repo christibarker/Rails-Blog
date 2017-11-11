@@ -3,18 +3,20 @@ class UsersController < ApplicationController
 before_action :authenticate, only: [:edit, :update, :destroy]  
 
   def index
-    @user_all = User.all
+    @user = User.all
   end
 
   def new
-    @user = User.new
+      @user = User.new
     # byebug #stop here interact with this line in the terminal
   end
 
   def create
+    @body_class = 'create_account'
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = 'Account Created'
+      session[:user_id]
       redirect_to @user
     else
       flash[:alert] = 'Account not created'
@@ -23,12 +25,17 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   end
 
   def show
+    @body_class = 'profile'
     @user_one = current_user
     @user = User.find(params[:id])
     @user_all = User.all.reject{|user| user == @user_one}
+  # byebug
   end
 
   def edit
+    @body_class = 'edit_account'
+    @body_class = 'edit_posts'
+    @user = current_user
     @user = User.find(params[:id])
   end
 
@@ -39,7 +46,10 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   end
 
   def destroy
+    @user = current_user
     @user = User.find(params[:id]).destroy
+     session[:user_id] = nil
+     render 'home/index'
   end
 private
 
