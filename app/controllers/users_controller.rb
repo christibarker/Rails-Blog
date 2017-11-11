@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 before_action :authenticate, only: [:edit, :update, :destroy]  
 
   def index
-    @user = User.all
+    @user_all = User.all
   end
 
   def new
@@ -16,7 +16,7 @@ before_action :authenticate, only: [:edit, :update, :destroy]
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = 'Account Created'
-      session[:user_id]
+      session[:user_id] = @user.id
       redirect_to @user
     else
       flash[:alert] = 'Account not created'
@@ -48,8 +48,9 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   def destroy
     @user = current_user
     @user = User.find(params[:id]).destroy
-     session[:user_id] = nil
-     render 'home/index'
+    session[:user_id] = nil
+    binding.pry
+    render 'home/index'
   end
 private
 
