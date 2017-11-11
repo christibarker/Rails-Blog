@@ -22,6 +22,9 @@
           <p class="font"> <%= post.title %></p>
           <p><%= post.content %></p>
           <p class="small"><%= post.created_at.to_formatted_s(:short) %></p>
+           <% if user_signed_in_? && current_user == @user %>
+            <%= link_to "Comment", new_comment_path %>
+            <% end %>
          <% end %>
        </div> 
       </div>

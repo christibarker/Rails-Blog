@@ -1,6 +1,6 @@
       Prefix Verb   URI Pattern                  Controller#Action
-  home_index GET    /home/index(.:format)        home#index
-             GET    /home(.:format)              home#index
+        root GET    /                            home#index
+  home_index GET    /home(.:format)              home#index
              POST   /home(.:format)              home#create
     new_home GET    /home/new(.:format)          home#new
    edit_home GET    /home/:id/edit(.:format)     home#edit
@@ -40,4 +40,3 @@ edit_session GET    /sessions/:id/edit(.:format) sessions#edit
              PATCH  /sessions/:id(.:format)      sessions#update
              PUT    /sessions/:id(.:format)      sessions#update
       logout DELETE /sessions(.:format)          sessions#destroy
-        root GET    /                            home#index

@@ -14,8 +14,8 @@
     <nav>
       <ul class="nav">
         <% if user_signed_in_? %>
-            <li class="nav-item">
-              <%= link_to "Home", root_path, class: "nav-link active" %>
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
              <%= link_to "Profile", @user, class: "nav-link" %>
@@ -28,7 +28,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <  <%= link_to "Home", root_path, class: "nav-link active" %>
+            <%= link_to "Home", root_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
            <%= link_to "Blog", posts_path, class: "nav-link active" %>

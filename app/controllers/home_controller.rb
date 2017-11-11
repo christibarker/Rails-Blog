@@ -4,9 +4,10 @@ class HomeController < ApplicationController
   	 	#  	opt 1 redirect_to current_user
   	 	@user = current_user 
   	 	render 'users/show'
-  	 else
-  	 	# redirect_to new_session_path
-  	 	render 'home/index'
-  	end
+    end
+  	#  else
+  	#  	# redirect_to new_session_path
+  	#  	redirect_to root_path
+  	# end
 	end
 end

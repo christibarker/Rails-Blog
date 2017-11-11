@@ -77,10 +77,10 @@
       <div class="background_p padding">
         <h4 >Fellow Travelers</h4>
           <div class="size">
-            <%# @user_all.each do |user| %>
+            <% @user_all.each do |user| %>
               <p class="font"></p>
-                <%# link_to user.name, user %>
-            <%# end %></p>
+                <%= link_to user.name, user %>
+            <% end %></p>
           </div>
       </div>
     </div>
