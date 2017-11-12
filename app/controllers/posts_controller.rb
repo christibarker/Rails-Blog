@@ -12,7 +12,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
   def create
     @user = current_user
-    @post = @user.posts.create(post_params)
+    @post = @user.post.create(post_params)
     redirect_to @user
   end
 
@@ -37,7 +37,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
   def destroy
      @post = Post.find(params[:id]).destroy
-     redirect_to current_user
+     redirect_to user_show_path
   end
 
   private

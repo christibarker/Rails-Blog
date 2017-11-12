@@ -34,7 +34,6 @@ before_action :authenticate, only: [:edit, :update, :destroy]
 
   def edit
     @body_class = 'edit_account'
-    @body_class = 'edit_posts'
     @user = current_user
     @user = User.find(params[:id])
   end
@@ -49,7 +48,6 @@ before_action :authenticate, only: [:edit, :update, :destroy]
     @user = current_user
     @user = User.find(params[:id]).destroy
     session[:user_id] = nil
-    binding.pry
     render 'home/index'
   end
 private

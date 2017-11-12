@@ -21,10 +21,10 @@
          <% @post_all.each do |post| %>
           <p class="font"> <%= post.title %></p>
           <p><%= post.content %></p>
-          <p class="small"><%= post.created_at.to_formatted_s(:short) %></p>
-           <% if user_signed_in_? && current_user == @user %>
-            <%= link_to "Comment", new_comment_path %>
-            <% end %>
+          <p class="small"><%= post.created_at.to_formatted_s(:short) %>
+           <% if user_signed_in_? %>
+            <%= link_to "Comment", new_comment_path %><p>
+           <% end %>
          <% end %>
        </div> 
       </div>
