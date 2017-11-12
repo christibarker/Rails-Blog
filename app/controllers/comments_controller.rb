@@ -3,11 +3,11 @@ class CommentsController < ApplicationController
 before_action :authenticate, only: [:edit, :update, :destroy]
 
   def index
-    @comment = comment.all
+    # @comment = comment.all
   end
 
   def new
-    @comment = Comment.new
+    # @comment = Comment.new
   end
 
   def create
