@@ -34,7 +34,7 @@
     <div class="col-6 background_p">
       <% if user_signed_in_? && current_user == @user %>
         <div class="padding">
-          <%= form_with model: @post do |f| %>
+          <%= form_with model: Post.new do |f| %>
           <%= f.label :Title %>
           <%= f.text_field :title, placeholder: 'title', class: "form-control", id: "title" %>
            <%= f.label :Content %>
@@ -62,11 +62,8 @@
                 <div class="small">
                   <span>Posted by: <%= @user.name %> </span>
                   <span>on <%= post.created_at.to_formatted_s(:short) %></span>
-                  <!-- <span class="reaction-button"></span>comment -->
-                <%# link_to "Edit Post", edit_post_path(@post), class="format" %>
-         <!--       url(img/edit.png")  -->
-                <%= link_to "Destroy", user, method: :delete %>
-                <!-- img class="format" src="/img/delete-icon.png" alt="" -->
+                <%= link_to image_tag("delete-icon.png", class: "format"), @post, method: :delete %>
+                <%= link_to image_tag("edit.png", class: "format"), edit_post_path(post) %>
             <% end %>
            </div>
           </div>
