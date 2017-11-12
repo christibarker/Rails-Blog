@@ -36,8 +36,9 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def destroy
+    @user = current_user
      @post = Post.find(params[:id]).destroy
-     redirect_to user_show_path
+     redirect_to @user
   end
 
   private
