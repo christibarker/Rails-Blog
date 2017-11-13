@@ -21,22 +21,24 @@
            <% @post_all.each do |post| %>
             <p class="font"> <%= post.title %></p>
             <p><%= post.content %></p>
-            <p class="small"><%= post.created_at.to_formatted_s(:short) %></p>
-            <p> <% if user_signed_in_? %>
+            <div class="bottom">
+            <span class="small"><%= post.created_at.to_formatted_s(:short) %></span>
+            <span> <% if user_signed_in_? %>
               <%# link_to "Comment", comments_path %>
               <%= form_with model: @comment do |f| %>
               <%# f.label :Comment %>
               <%= f.text_field :comment, placeholder: 'comment' %>
               <%= f.hidden_field :post_id, :value => post.id %>
               <%= f.submit "Add Comment", class: "btn btn-primary" %>
-               <p class="small"><%# comment.created_at.to_formatted_s(:short) %></p>
+               <span><%# comment.created_at.to_formatted_s(:short) %></span>
                  <%# @comment.each do |comment| %>
                   <p><%# @comment.comment %></p>
-                  <p class="small"><%# comment.created_at.to_formatted_s(:short) %></p>
+                  <p><%# comment.created_at.to_formatted_s(:short) %></p>
                  <%# end %>
                <% end %>
              <% end %>
-           <% end %>
+            <% end %>
+           </div>
          </div> 
         </div>
       </div>

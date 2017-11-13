@@ -1,5 +1,4 @@
 <!-- shows current user profile -->
-<!-- add if statement to only show add post for current user -->
 
 <div class="container-fluid">
   <div class="row">
@@ -57,20 +56,20 @@
       <div class="padding">
         <h4>Your Posts</h4>
         <div class="posts padding left">
-          <div>
             <% @user.post.each do |post| %>
               <p><%= post.title %></p>
               <p><%= post.content %></p>
-                <div class="small">
-                  <span>Posted by: <%= @user.name %> </span>
-                  <span>on <%= post.created_at.to_formatted_s(:short) %></span>
+              <div class="small bottom">
+              <span>Posted by: <%= @user.name %> </span>
+              <span>on <%= post.created_at.to_formatted_s(:short) %></span>
+              </div>
                 <%# link_to image_tag("delete-icon.png", class: "format"), @post, method: :delete %>
-                <% if user_signed_in_? && current_user == @user %>
-                  <%= link_to image_tag("edit.png", class: "format"), edit_post_path(post) %>
-                <% end %> 
+              <% if user_signed_in_? && current_user == @user %>
+                <%= link_to image_tag("edit.png", class: "format"), edit_post_path(post) %>
+              <% end %> 
             <% end %>
+            <div class="bottom"></div>
            </div>
-          </div>
         </div>
       </div>
     </div>
