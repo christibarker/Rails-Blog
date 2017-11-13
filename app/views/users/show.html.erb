@@ -37,9 +37,11 @@
           <%= form_with model: Post.new do |f| %>
           <%= f.label :Title %>
           <%= f.text_field :title, placeholder: 'title', class: "form-control", id: "title" %>
+            <br>
            <%= f.label :Content %>
-          <%= f.text_field :content, placeholder: 'content' %>
-            <%= f.submit "Create Post" %>
+          <%= f.text_field :content, placeholder: 'content', class: "form-control" %>
+          <br>
+            <%= f.submit "Create Post", class: "btn btn-primary"%>
           <% end %>
         </div>
       <% end %>
@@ -63,7 +65,9 @@
                   <span>Posted by: <%= @user.name %> </span>
                   <span>on <%= post.created_at.to_formatted_s(:short) %></span>
                 <%# link_to image_tag("delete-icon.png", class: "format"), @post, method: :delete %>
-                <%= link_to image_tag("edit.png", class: "format"), edit_post_path(post) %>
+                <% if user_signed_in_? && current_user == @user %>
+                  <%= link_to image_tag("edit.png", class: "format"), edit_post_path(post) %>
+                <% end %> 
             <% end %>
            </div>
           </div>
@@ -89,9 +93,9 @@
     <div class="col-6 background_p">
       <div class="padding padding_b">
         <% if user_signed_in_? && current_user == @user %>
-          <%= link_to "Edit Profile", edit_user_path(current_user) %>
+          <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %>
         <% else %>
-          <%= link_to "My Profile", current_user %>
+          <%= link_to "My Profile", current_user, class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
