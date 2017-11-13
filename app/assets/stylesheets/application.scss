@@ -25,16 +25,17 @@ body {
 	font-family: fantasy;
 	background-size: cover;
 	background-repeat: no-repeat;
+	
 }
 
 
 
 .profile {
-	background-image: url(/img/trevi_fountain.jpg);
+	background-image: url(/img/trevi_fountain.jpg); // link to /assets/images/trevi_fountain.jpg
 }
 
 .sign_in {
-	background-image: url(/img/tomb_of_unknown.jpg);
+	background-image: image-url('tomb_of_unknown.jpg');
 }
 
 .edit_account {

@@ -7,7 +7,8 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   end
 
   def new
-    # @comment = Comment.new
+     
+    @comment = Comment.new
   end
 
   def create
