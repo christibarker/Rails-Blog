@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    @body_class = 'blog'
     @post_all = Post.all
   end
 
@@ -17,7 +18,6 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def show
-    @body_class = 'blog'
     @user = current_user
     @post_all = Post.all
     @post = Post.find(params[:id])

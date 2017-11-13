@@ -13,7 +13,7 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   def create
     # binding.pry
     current_user.comments.create(comment_params)
-    redirect_to @post
+    # redirect_to @post
   end
 
   def show

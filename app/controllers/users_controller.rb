@@ -7,12 +7,12 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   end
 
   def new
+      @body_class = 'create_account'
       @user = User.new
     # byebug #stop here interact with this line in the terminal
   end
 
   def create
-    @body_class = 'create_account'
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = 'Account Created'

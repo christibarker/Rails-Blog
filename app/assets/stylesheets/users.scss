@@ -2,7 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.profile {
+	background-image: image-url('/assets/trevi_fountain.jpg'); 
+}
 
+.sign_in {
+	background-image: image-url('/assets/tomb_of_unknown.jpg');
+}
+
+.edit_account {
+	background-image: image-url('/assets/rome051.jpg');
+}
+
+.create_account {
+	background-image: image-url('/assets/rome_122.jpg');
+}
 
 /**************create_account.erb****************/
 
