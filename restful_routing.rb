@@ -13,10 +13,10 @@
  new_comment GET    /comments/new(.:format)      comments#new
 edit_comment GET    /comments/:id/edit(.:format) comments#edit
      comment GET    /comments/:id(.:format)      comments#show
-             PATCH  /comments/:id(.:format)      comments#update
+             PATCH  /comments/:id(.:format)      comments#updatroy
+       users GET    /users(.:format)             users#indexe
              PUT    /comments/:id(.:format)      comments#update
-             DELETE /comments/:id(.:format)      comments#destroy
-       users GET    /users(.:format)             users#index
+             DELETE /comments/:id(.:format)      comments#dest
              POST   /users(.:format)             users#create
     new_user GET    /users/new(.:format)         users#new
    edit_user GET    /users/:id/edit(.:format)    users#edit
