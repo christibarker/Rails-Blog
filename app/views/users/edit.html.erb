@@ -26,8 +26,11 @@
             <%= form_with model: @user do |f| %>
               <%= f.label :name %>
               <%= f.text_field :name, placeholder: 'name', class: "form-control", id: "name" %>
+                <br>
               <%= f.text_field :email, placeholder: 'email', class: "form-control", id: "exampleInputEmail1", ariadescribedby: "emailHelp" %>
+                <br>
               <%= f.password_field :password, placeholder: 'password', class: "form-control", id: "exampleInputPassword1" %>
+                <br>
               <%= f.submit "Update Account", id: "button", class: "btn btn-primary" %>
             <% end %>
         </div>

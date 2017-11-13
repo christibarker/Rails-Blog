@@ -17,8 +17,10 @@
         <%= form_with url:sessions_path, scope: 'login' do |f| %>
         <%= f.label :email %>
         <%= f.text_field :email, placeholder: 'email', class: "form-control", id: "exampleInputEmail1", ariadescribedby: "emailHelp" %>
+        <br>
         <%= f.label :password %>
         <%= f.password_field :password, placeholder: 'password', class: "form-control", id: "exampleInputPassword1" %>
+        <br>
         <%= f.submit "Login", id: "button_two", class: "btn btn-primary" %>
       <% end %>
     </div>
