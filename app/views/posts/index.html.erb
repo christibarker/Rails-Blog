@@ -21,15 +21,15 @@
            <% @post_all.each do |post| %>
             <p class="font"> <%= post.title %></p>
             <p><%= post.content %></p>
-            <div class="bottom">
+            <div>
             <span class="small"><%= post.created_at.to_formatted_s(:short) %></span>
             <span> <% if user_signed_in_? %>
               <%# link_to "Comment", comments_path %>
-              <%= form_with model: @comment do |f| %>
+              <%= form_with model: @comment, scope: 'comment' do |f| %>
               <%# f.label :Comment %>
-              <%= f.text_field :comment, placeholder: 'comment' %>
+              <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
               <%= f.hidden_field :post_id, :value => post.id %>
-              <%= f.submit "Add Comment", class: "btn btn-primary" %>
+             <%= f.submit "add", :disable_with => 'adding...' %>
                <span><%# comment.created_at.to_formatted_s(:short) %></span>
                  <%# @comment.each do |comment| %>
                   <p><%# @comment.comment %></p>
