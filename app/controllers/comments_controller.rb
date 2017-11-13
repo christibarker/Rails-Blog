@@ -3,21 +3,22 @@ class CommentsController < ApplicationController
 before_action :authenticate, only: [:edit, :update, :destroy]
 
   def index
-    # @comment = comment.all
+    @comment_all = Comment.all
   end
 
   def new
-     
     @comment = Comment.new
   end
 
   def create
-    @user = current_user
-    @user.comment.create(params[:id])
-    redirect_to @post
+    # binding.pry
+    current_user.comments.create(comment_params)
+    # redirect_to @post
   end
 
   def show
+    # @post_all = Post.all
+    # @comment_all = Comment.all
     @comment = Comment.find(params[:id])
   end
 
@@ -27,7 +28,7 @@ before_action :authenticate, only: [:edit, :update, :destroy]
 
   def update
     @comment = Comment.find(params[:id])
-    @comment.update(post_params)
+    @comment.update(comment_params)
     redirect_to @post
   end
 
@@ -38,8 +39,8 @@ before_action :authenticate, only: [:edit, :update, :destroy]
 
 private
 
-  def post_params
-    params.require(:post).permit(:content)
+  def comment_params
+    params.require(:comment).permit(:comment, :post_id)
   end
 
 end

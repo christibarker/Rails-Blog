@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.edit_posts {
+	background-image: image-url('/assets/rome.jpg');
+}
+
+.update_posts {
+	background-image: image-url('/assets/coluseum.jpg');
+}
+
+.blog {
+	background-image: image-url('/assets/vatican_courtyard.jpg');
+}
 
 /**************blog.erb****************/
 

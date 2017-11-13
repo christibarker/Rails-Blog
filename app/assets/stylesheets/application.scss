@@ -25,42 +25,13 @@ body {
 	font-family: fantasy;
 	background-size: cover;
 	background-repeat: no-repeat;
-	
 }
 
 
 
-.profile {
-	background-image: url(/img/trevi_fountain.jpg); // link to /assets/images/trevi_fountain.jpg
-}
-
-.sign_in {
-	background-image: image-url('tomb_of_unknown.jpg');
-}
-
-.edit_account {
-	background-image: url(/img/rome051.jpg);
-}
-
-.blog {
-	background-image: url(/img/vatican_courtyard.jpg);
-}
-
-.create_account {
-	background-image: url(/img/rome_122.jpg);
-}
-
-.show {
-	background-image: url(/img/rome_076.jpg);
-}
-
-.edit_posts {
-	background-image: url(/img/rome.jpg);
-}
-
-.update_posts {
-	background-image: url(/img/coluseum.jpg);
-}
+// .show {
+// 	background-image: image-url('/assets/rome_076.jpg');
+// }
 
 
 /**************layout.erb****************/

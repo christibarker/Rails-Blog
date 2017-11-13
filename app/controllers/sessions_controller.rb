@@ -3,10 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def new
+    @body_class = 'sign_in'
   end
 
   def create
-    @body_class = 'sign_in'
+    
     @user = User.find_by(session_params)
     if @user
       session[:user_id] = @user.id

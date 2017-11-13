@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @body_class = 'home'
   	if user_signed_in_?
   	 	#  	opt 1 redirect_to current_user
   	 	@user = current_user 
