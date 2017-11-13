@@ -5,6 +5,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
   def index
     @body_class = 'blog'
     @post_all = Post.all
+    @comment = Comment.new
   end
 
   def new
