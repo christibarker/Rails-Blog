@@ -24,12 +24,13 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
   def edit
     @comment = Comment.find(params[:id])
+    redirect_to @post
   end
 
   def update
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
-    redirect_to @post
+    redirect_to posts_path
   end
 
   def destroy

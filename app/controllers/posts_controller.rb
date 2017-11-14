@@ -6,6 +6,8 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
     @body_class = 'blog'
     @post_all = Post.all
     @comment = Comment.new
+    # @new_comment = comment_path
+    # @user = User.all  
   end
 
   def new

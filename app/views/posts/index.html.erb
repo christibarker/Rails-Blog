@@ -24,17 +24,17 @@
             <div>
             <span class="small"><%= post.created_at.to_formatted_s(:short) %></span>
             <span> <% if user_signed_in_? %>
-              <%# link_to "Comment", comments_path %>
               <%= form_with model: @comment, scope: 'comment' do |f| %>
               <%# f.label :Comment %>
               <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
               <%= f.hidden_field :post_id, :value => post.id %>
-             <%= f.submit "add", :disable_with => 'adding...' %>
-               <span><%# comment.created_at.to_formatted_s(:short) %></span>
-                 <%# @comment.each do |comment| %>
-                  <p><%# @comment.comment %></p>
+             <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary"  %>
+              <!-- <span>Posted by: <%# @user.name %> </span> -->
+               <span><%# @comment.created_at %></span>
+                 <%= comment.each do |comment| %>
+                  <p><%= comment.comment %></p>
                   <p><%# comment.created_at.to_formatted_s(:short) %></p>
-                 <%# end %>
+                 <% end %>
                <% end %>
              <% end %>
             <% end %>
@@ -46,4 +46,13 @@
       </div>
     </div>
     <!-- end of row -->
+      <div class="row">
+      <div class="col">
+      </div>
+      <div class="col-6 header background">
+        <h1></h1>
+      </div>
+      <div class="col">
+      </div>
+    </div>
   </div>
