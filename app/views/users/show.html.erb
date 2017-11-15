@@ -58,7 +58,7 @@
         <h4>Your Posts</h4>
       </div>
       <div class="posts padding left post_o">
-          <% @user.posts.each do |post| %>
+          <% @user.posts.reverse.each do |post| %>
               <%= render post %>
               <% if user_signed_in_? && current_user == @user %>
                 <%= link_to image_tag("edit.png", class: "format"), edit_post_path(post) %>
