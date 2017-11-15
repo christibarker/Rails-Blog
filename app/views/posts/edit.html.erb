@@ -26,7 +26,7 @@
            <%= f.label :Content %>
           <%= f.text_field :content, placeholder: 'content', class: "form-control" %>
           <br>
-            <%= f.submit "Update Post", id:"button_three", class: "btn btn-primary" %>
+            <%= f.submit "Update Post", id:"button_three", class: "btn btn-primary, update" %>
           <% end %>
       </div>
     </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="col-6 background_p">
       <div class="padding padding_b">
-        <%= link_to "Delete Post", @post, method: :delete, class: "btn btn-success" %>
+        <%= link_to "Delete Post", @post, method: :delete, remote: true, class: "btn btn-success d_post" %>
       </div>
      </div>
      <div class="col">

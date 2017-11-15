@@ -44,12 +44,26 @@ before_action :authenticate, only: [:edit, :update, :destroy]
     redirect_to @user
   end
 
+
   def destroy
     @user = current_user
     @user = User.find(params[:id]).destroy
     session[:user_id] = nil
-    render 'home/index'
+    redirect_to root_path
   end
+
+  # opt 2
+  # def destroy
+  #   # to check its working
+  #   # puts "got"
+  #   respond_to do |format|
+  #     User.find(params[:id]).destroy
+  #     session[:user_id] = nil
+  #     format.js
+  #     format.html {render 'home/index'}
+  #   end
+  # end
+
 private
 
   def user_params

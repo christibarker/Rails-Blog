@@ -5,9 +5,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
   def index
     @body_class = 'blog'
     @post_all = Post.all
-    @comment = Comment.new
-    # @new_comment = comment_path
-    # @user = User.all  
+    @comment = Comment.new  
   end
 
   def new
@@ -16,7 +14,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
   def create
     @user = current_user
-    @post = @user.post.create(post_params)
+    @post = @user.posts.create(post_params)
     redirect_to @user
   end
 
@@ -35,13 +33,20 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
     @body_class = 'update_posts'
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to current_user
+    redirect_to current_user 
   end
+  # opt 2
+  #  def update
+  #   @body_class = 'update_posts'
+  #   @post = Post.find(params[:id])
+  #   @post.update(post_params)
+  #   redirect_to current_user
+  # end
 
   def destroy
     @user = current_user
-     @post = Post.find(params[:id]).destroy
-     redirect_to @user
+    @post = Post.find(params[:id]).destroy
+    redirect_to @user
   end
 
   private

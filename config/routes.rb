@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :home
-  resources :comments
+  resources :home 
+  resources :comments 
   resources :users
   resources :posts
   resources :sessions, except: [:destroy]

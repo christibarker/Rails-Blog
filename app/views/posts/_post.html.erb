@@ -1,0 +1,8 @@
+<!-- render same info over different pages -->
+<div class="post">
+	<p class="font"> <%= post.title %></p>
+  <p><%= post.content %></p>
+  <!-- delete all posts -->
+  <span class="small">Posted by: <%= post.user.name %> </span> 
+  <span class="small">on <%= post.created_at.to_formatted_s(:short) %></span>
+</div>

@@ -5,7 +5,7 @@
     <div class="col">
     </div>
     <div class="col-6 background_p top">
-    	<div class="header_two">
+    	<div class="header">
 		    <h2>Edit comments</h2>
   		  <p>Enter the changes you wish to make in your comment.</p>
     	</div>
@@ -21,8 +21,9 @@
       <div class="padding">
        <%= form_with model: @comment do |f| %>
           <%= f.label :Comment %>
-          <%= f.text_field :comment, placeholder: 'comment' %>
-          <%= f.submit "Update Comment", class: "btn btn-primary" %>
+          <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
+          <br>
+          <%= f.submit "Update Comment", class: "btn btn-primary", id: "c_button" %>
         <% end %>
       </div>
     </div>
@@ -35,7 +36,8 @@
     </div>
     <div class="col-6 background_p">
       <div class="padding padding_b">
-       <%= link_to "Delete Comment", @comment, method: :delete, class: "btn btn-success" %>
+       <%# link_to "Delete Comment", @comment, method: :delete, class: "btn btn-success" %>
+        <%= link_to "Delete Comment", @user, method: :delete, remote: true, class: "btn btn-success d_comment" %>
       </div>
      </div>
      <div class="col">
@@ -45,8 +47,19 @@
     <div class="col">
     </div>
     <div class="col-6 background_p">
+      <div class="padding">
+        <%= link_to "Blog", posts_path, class: "btn btn-primary" %>
+      </div>
+     </div>
+     <div class="col">
+     </div>
+  </div>
+   <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
       <div class="padding padding_b">
-        <%= link_to "My Profile", current_user, class: "btn btn-primary" %>
+         <%= link_to "My Profile", current_user, class: "btn btn-primary" %>
       </div>
      </div>
      <div class="col">

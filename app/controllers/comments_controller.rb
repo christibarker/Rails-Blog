@@ -12,7 +12,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
   def create
     # binding.pry
-    @c = current_user.comments.create(comment_params)
+    current_user.comments.create(comment_params)
     redirect_to posts_path
   end
 
@@ -23,8 +23,9 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def edit
+    @body_class = 'show'
     @comment = Comment.find(params[:id])
-    redirect_to @post
+    # redirect_to @post
   end
 
   def update
@@ -34,7 +35,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def destroy
-    @comment = Comment.find(params[:id]).destroy
+     @comment = Comment.find(params[:id]).destroy
     redirect_to posts_path
   end
 

@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    
     @user = User.find_by(session_params)
     if @user
       session[:user_id] = @user.id
