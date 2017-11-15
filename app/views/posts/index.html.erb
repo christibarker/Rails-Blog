@@ -32,13 +32,14 @@
               <%= form_with model: @comment, scope: 'comment' do |f| %>
                 <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
                 <%= f.hidden_field :post_id, :value => post.id %>
-                <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary update", remote: true  %>
+                <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary", id: "update", remote: true  %>
               <% end %></span>
              <% post.comments.reverse.each do |comment| %>
-              <p class="padding"><%= comment.comment %></p>
+              <p class="padding comment"><%= comment.comment %></p>
               <span class="small">Posted by: <%= comment.user.name %> </span>
               <span class="small"><%= comment.created_at.to_formatted_s(:short) %></span>
               <% if current_user == comment.user %>
+               <%# link_to image_tag("delete-icon.png", class: "format" method: :destroy) %>
                 <%= link_to image_tag("edit.png", class: "format"),edit_comment_path(comment) %>
               <% end %>
               <% end %>

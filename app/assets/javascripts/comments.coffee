@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-	$('.d_comment').on 'ajax:sucess', ->
+	$('#update').on 'ajax:success', ->
 		console.log('worked')
-		# $(this).closest('.comment').remove
+	# 	$('.comment').prepend(comment.comment)

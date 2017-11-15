@@ -9,7 +9,3 @@
 
 
 
-$(document).on 'turbolinks:load', ->
-	$('.update').on 'ajax:sucess', ->
-		# console.log('worked')
-		$(this).closest('.post').update

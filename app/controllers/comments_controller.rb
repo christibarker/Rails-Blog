@@ -15,7 +15,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
     respond_to do |format|
     current_user.comments.create(comment_params)
     format.js
-    # format.html {posts_path}
+    format.html {redirect_to posts_path}
     end 
   end
 
