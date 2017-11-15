@@ -21,12 +21,14 @@
       <div class="padding">
          <%= form_with model: @post do |f| %>
           <%= f.label :Title %>
+          <br>
           <%= f.text_field :title, placeholder: 'title', class: "form-control", id: "title" %>
           <br>
            <%= f.label :Content %>
+           <br>
           <%= f.text_field :content, placeholder: 'content', class: "form-control" %>
           <br>
-            <%= f.submit "Update Post", id:"button_three", class: "btn btn-primary, update" %>
+            <%= f.submit "Update Post", id:"button_three", class: "btn btn-primary, update btn btn-primary" %>
           <% end %>
       </div>
     </div>
