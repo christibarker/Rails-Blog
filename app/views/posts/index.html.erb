@@ -32,14 +32,13 @@
               <%= form_with model: @comment, scope: 'comment' do |f| %>
               <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
               <%= f.hidden_field :post_id, :value => post.id %>
-             <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary"  %>
-               
+             <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary"  %> 
                  <% post.comments.reverse.each do |comment| %>
                     <p><%= comment.comment %></p>
                     <span class="small">Posted by: <%= comment.user.name %> </span>
                     <span class="small"><%= comment.created_at.to_formatted_s(:short) %></span>
                   <% if current_user == comment.user %>
-                    <%= link_to "edit", edit_comment_path(post.id), class: "btn btn-primary" %>
+                    <%= link_to "edit", edit_comment_path(comment), class: "btn btn-primary" %>
                     <% end %>
                  <% end %>
                <% end %>

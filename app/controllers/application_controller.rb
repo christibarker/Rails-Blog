@@ -17,6 +17,7 @@ helper_method :current_user, :user_signed_in_?, :authenticate
   end
 
   def user_signed_in_?
+    # session[:user_id] = nil
   	!session[:user_id].nil?
   end
 

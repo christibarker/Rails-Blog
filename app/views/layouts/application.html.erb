@@ -18,7 +18,7 @@
             <%= link_to "Home", root_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-             <%= link_to "Profile", @user, class: "nav-link" %>
+             <%= link_to "Profile", current_user, class: "nav-link" %>
           </li>
           <li class="nav-item">
              <%= link_to "Blog", posts_path, class: "nav-link active" %>
@@ -57,10 +57,7 @@
           <li class="nav-item">
             <%= link_to "Blog", posts_path, class: "nav-link active" %>
           </li>
-           <!-- <li class="nav-item">
-            <a class="nav-link" href="/show">Contributors</a>
-          </li> -->
-          <li class="nav-item">
+    
           <li class="nav-item">
             <%= link_to "Log Out", logout_path, method: :delete,  class: "nav-link" %>
           </li>
@@ -68,9 +65,6 @@
           <li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link active" %>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="/profile">Profile</a>
-          </li> -->
           <li class="nav-item">
             <%= link_to "Blog", posts_path, class: "nav-link active" %>
           </li>
