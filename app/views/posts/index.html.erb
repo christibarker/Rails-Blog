@@ -33,13 +33,13 @@
               <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
               <%= f.hidden_field :post_id, :value => post.id %>
              <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary"  %>
-                         <!-- <span>Posted by: <%# @user.name %> </span> -->
-               <span><%#comment.created_at %></span>
+               
                  <% post.comments.reverse.each do |comment| %>
-                  <p><%= comment.comment %></p>
-                  <p><%= comment.created_at.to_formatted_s(:short) %></p>
-                  <% if user_signed_in_? && current_user == @user %>
-                    <%= link_to "edit", edit_comment_path, class: "btn btn-primary" %>
+                    <p><%= comment.comment %></p>
+                    <span class="small">Posted by: <%= current_user.name %> </span>
+                    <span class="small"><%= comment.created_at.to_formatted_s(:short) %></span>
+                  <% if user_signed_in_? &&current_user == @user %>
+                    <%= link_to "edit", edit_comment_path(post.id), class: "btn btn-primary" %>
                     <% end %>
                  <% end %>
                <% end %>
