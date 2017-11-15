@@ -1,19 +1,18 @@
 <!-- shows current user profile -->
-
 <div class="container-fluid">
   <div class="row">
     <div class="col">
     </div>
     <div class="col-6 background_p top">
-    	<div class="header_two">
-         <h4 >Welcome to your Profile </h4>
-         <h4><%= @user.name %></h4>
-    	</div>
+      <div class="header_two">
+       <h4 >Welcome to your Profile </h4>
+       <h4><%= @user.name %></h4>
+       </div>
     </div>
     <div class="col">
     </div>
   </div>
-<!-- end of row -->
+  <!-- end of row -->
   <div class="row">
     <div class="col">
     </div>
@@ -26,64 +25,61 @@
     <div class="col">
     </div>
   </div>
-<!-- end of row -->
+   <!-- end of row -->
   <div class="row">
     <div class="col">
     </div>
-    <div class="col-6 background_p">
+    <div class="col-6 background_p ">
       <% if user_signed_in_? && current_user == @user %>
         <div class="padding">
           <%= form_with model: Post.new do |f| %>
           <%= f.label :Title %>
+          <br>
           <%= f.text_field :title, placeholder: 'title', class: "form-control", id: "title" %>
             <br>
            <%= f.label :Content %>
-          <%= f.text_field :content, placeholder: 'content', class: "form-control" %>
+           <br>
+          <%= f.text_field :content, placeholder: 'content', class: "form-control", id:"content" %>
           <br>
-            <%= f.submit "Create Post", class: "btn btn-primary"%>
+          <%= f.submit "Create Post", class: "btn btn-primary", id: "button_three" %>
           <% end %>
         </div>
       <% end %>
-     </div>
-   <div class="col">
-   </div>
+    </div>
+    <div class="col">
+    </div>
   </div>
   <!-- end of row -->
-   <div class="row">
+  <div class="row">
     <div class="col">
     </div>
     <div class="col-6 background_p">
       <div class="padding">
         <h4>Your Posts</h4>
-        <div class="posts padding left">
-            <% @user.post.each do |post| %>
-              <p><%= post.title %></p>
-              <p><%= post.content %></p>
-              <span>Posted by: <%= @user.name %> </span>
-              <span>on <%= post.created_at.to_formatted_s(:short) %></span>
-             
-                <%# link_to image_tag("delete-icon.png", class: "format"), @post, method: :delete %>
+      </div>
+      <div class="posts padding left post_o">
+          <% @user.posts.each do |post| %>
+              <%= render post %>
               <% if user_signed_in_? && current_user == @user %>
                 <%= link_to image_tag("edit.png", class: "format"), edit_post_path(post) %>
               <% end %> 
             <% end %>
-           </div>
-        </div>
       </div>
+      
     </div>
     <div class="col">
       <div class="background_p padding">
         <h4 >Fellow Travelers</h4>
-          <div class="size">
+      </div>
+      <div class="size background_p">
             <% @user_all.each do |user| %>
               <p class="font"></p>
                 <%= link_to user.name, user %>
             <% end %></p>
-          </div>
       </div>
     </div>
   </div>
-<!-- end of row -->
+  <!-- end of row -->
   <div class="row">
     <div class="col">
     </div>
@@ -97,6 +93,7 @@
       </div>
     </div>
     <div class="col">
+      3 of 3
     </div>
-  </div>
+<!-- end of container -->
 </div>

@@ -10,6 +10,7 @@ helper_method :current_user, :user_signed_in_?, :authenticate
   end
 
   def current_user
+    # session[:user_id] = nil
   	if user_signed_in_?
   		User.find(session[:user_id])
   	end

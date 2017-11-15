@@ -44,7 +44,7 @@
     </div>
     <div class="col-6 background_p">
       <div class="padding padding_b">
-        <%= link_to "Delete Account", @user, method: :delete, class: "btn btn-success" %>
+        <%= link_to "Delete Account", @user, method: :delete, remote: true, class: "btn btn-success destroy" %>
 			</div>
      </div>
      <div class="col">

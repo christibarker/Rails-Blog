@@ -2,3 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.show {
+	background-image: image-url('/assets/rome_076.jpg');
+}
+
+
+.form-control {
+	line-height: 2.0;
+	width: 500px;
+	display: inline-block;
+}
+
+
+.header {
+	margin-top: 10%;
+	text-align: center;
+	padding: 5%
+}
+
+.padding {
+	padding-top: 4%;
+}
+
+.padding_b {
+	padding-bottom: 3%;
+}
+
+ #c_button {
+float: right;
+margin-top: 4%;
+}
