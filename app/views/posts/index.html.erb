@@ -6,30 +6,25 @@
   <%# end %>
 </div> -->
 
-
-
-
-
-<!-- all blog posts -->
-  <div class="container">
-    <div class="row">
-      <div class="col">
-      </div>
-      <div class="col-6 header background">
-        <h1>Adventures in Italy</h1>
-      </div>
-      <div class="col">
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
     </div>
-<!-- end of row -->
-    <div class="row">
-      <div class="col">
-      </div>
-      <div class="col-6 posts background">
-        <div class="padding">
+    <div class="col-6 header background">
+      <h1>Adventures in Italy</h1>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <!-- end of row -->
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+       <div class="padding_b">
         <h4>Blog Posts</h4>
-       <!--  <br> -->
-          <div class="post_o padding">
+      </div>
+        <div class="posts post_o padding">
            <% @post_all.each do |post| %>
            <%= render post %>
             <div class="posts">
@@ -40,11 +35,11 @@
              <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary"  %>
                          <!-- <span>Posted by: <%# @user.name %> </span> -->
                <span><%#comment.created_at %></span>
-                 <% post.comments.each do |comment| %>
+                 <% post.comments.reverse.each do |comment| %>
                   <p><%= comment.comment %></p>
                   <p><%= comment.created_at.to_formatted_s(:short) %></p>
                   <% if user_signed_in_? && current_user == @user %>
-                    <%= link_to "edit", edit_comment_path(post.id), class: "btn btn-primary" %>
+                    <%= link_to "edit", edit_comment_path, class: "btn btn-primary" %>
                     <% end %>
                  <% end %>
                <% end %>
@@ -53,18 +48,20 @@
            </div>
          </div> 
         </div>
-      </div>
-      <div class="col">
-      </div>
     </div>
-    <!-- end of row -->
-      <div class="row">
-      <div class="col">
-      </div>
-      <div class="col-6 header background">
-        <h1></h1>
-      </div>
-      <div class="col">
-      </div>
+    <div class="col">
     </div>
   </div>
+  <!-- end of row -->
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 background_p">
+      
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <!-- end of row -->
+<!-- end of container -->
+</div>
