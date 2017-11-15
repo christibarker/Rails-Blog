@@ -5,9 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.4.2
 
 * System dependencies
+	Ruby on rails
+	bootstrap ruby gem
 
 * Configuration
 
@@ -22,3 +24,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+framework is set up to add ajax calls to buttons
