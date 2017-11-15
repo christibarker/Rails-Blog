@@ -35,7 +35,7 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def destroy
-     @comment = Comment.find(params[:id]).destroy
+    Comment.find(params[:id]).destroy
     redirect_to posts_path
   end
 
