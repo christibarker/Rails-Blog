@@ -10,11 +10,20 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
     @comment = Comment.new
   end
 
-  def create
-    # binding.pry
+
+ def create
+    respond_to do |format|
     current_user.comments.create(comment_params)
-    redirect_to posts_path
+    format.js
+    # format.html {posts_path}
+    end 
   end
+
+  # def create
+  #   # binding.pry
+  #   current_user.comments.create(comment_params)
+  #   redirect_to posts_path
+  # end
 
   def show
     # @post_all = Post.all

@@ -25,23 +25,23 @@
         <h4>Blog Posts</h4>
       </div>
         <div class="posts post_o padding">
-           <% @post_all.each do |post| %>
-           <%= render post %>
-            <div class="posts">
+          <% @post_all.each do |post| %>
+          <%= render post %>
+          <div class="posts">
             <span> <% if user_signed_in_? %>
               <%= form_with model: @comment, scope: 'comment' do |f| %>
-              <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
-              <%= f.hidden_field :post_id, :value => post.id %>
-             <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary"  %> 
-                 <% post.comments.reverse.each do |comment| %>
-                    <p><%= comment.comment %></p>
-                    <span class="small">Posted by: <%= comment.user.name %> </span>
-                    <span class="small"><%= comment.created_at.to_formatted_s(:short) %></span>
-                  <% if current_user == comment.user %>
-                    <%= link_to "edit", edit_comment_path(comment), class: "btn btn-primary" %>
-                    <% end %>
-                 <% end %>
-               <% end %>
+                <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
+                <%= f.hidden_field :post_id, :value => post.id %>
+                <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary update", remote: true  %>
+              <% end %></span>
+             <% post.comments.reverse.each do |comment| %>
+              <p class="padding"><%= comment.comment %></p>
+              <span class="small">Posted by: <%= comment.user.name %> </span>
+              <span class="small"><%= comment.created_at.to_formatted_s(:short) %></span>
+              <% if current_user == comment.user %>
+                <%= link_to image_tag("edit.png", class: "format"),edit_comment_path(comment) %>
+              <% end %>
+              <% end %>
              <% end %>
             <% end %>
            </div>
