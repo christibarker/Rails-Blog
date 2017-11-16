@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 before_action :authenticate, only: [:edit, :update, :destroy]  
+validates :email, uniqueness, :true
 
   def index
     @user_all = User.all
