@@ -1,67 +1,47 @@
-<!-- <div class="posts">
+<div class="posts">
 
-  how your post layout should look
-  <%# @post.each do |post| %>
-  <%# render post %>
-  <%# end %>
+how your post layout should look
+<%# @post.each do |post| %>
+<%# render post %>
+<%# end %>
 </div> -->
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
-    </div>
+    <div class="col"></div>
     <div class="col-6 header background">
       <h1>Adventures in Italy</h1>
     </div>
-    <div class="col">
-    </div>
+    <div class="col"></div>
   </div>
   <!-- end of row -->
   <div class="row">
-    <div class="col">
-    </div>
-    <div class="col-6 background_p">
-       <div class="padding_b">
+    <div class="col-6 offset-sm-3 background_p">
+      <div class="padding_b">
         <h4>Blog Posts</h4>
       </div>
-        <div class="posts post_o padding">
-          <% @post_all.each do |post| %>
+      <div class="posts post_o padding">
+        <% @post_all.each do |post| %>
           <%= render post %>
-          <div class="posts">
-            <span> <% if user_signed_in_? %>
-              <%= form_with model: @comment, scope: 'comment' do |f| %>
+          <div> 
+            <% if user_signed_in_? %>
+              <%= form_with model: @comment, class: "new_comment" do |f| %>
                 <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
                 <%= f.hidden_field :post_id, :value => post.id %>
                 <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary", id: "update", remote: true  %>
-              <% end %></span>
-             <% post.comments.reverse.each do |comment| %>
-              <p class="padding comment"><%= comment.comment %></p>
-              <span class="small">Posted by: <%= comment.user.name %> </span>
-              <span class="small"><%= comment.created_at.to_formatted_s(:short) %></span>
-              <% if current_user == comment.user %>
-               <%= link_to image_tag("delete-icon.png", class: "format"), comment,  method: :delete %>
-                <%= link_to image_tag("edit.png", class: "format"),edit_comment_path(comment) %>
               <% end %>
-              <% end %>
-             <% end %>
             <% end %>
-           </div>
-         </div> 
-        </div>
+          </div>
+          <div class="comments">
+            <% post.comments.reverse.each do |comment| %>
+              <%= render comment %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="col">
-    </div>
-  </div>
-  <!-- end of row -->
+  </div> <!-- .row -->
   <div class="row">
-    <div class="col">
-    </div>
-    <div class="col-6 background_p">
-      
-    </div>
-    <div class="col">
-    </div>
-  </div>
-  <!-- end of row -->
-<!-- end of container -->
-</div>
+    <div class="col-6 offset-sm-3 background_p"></div>
+  </div> <!-- end of row -->
+</div> <!-- end of container

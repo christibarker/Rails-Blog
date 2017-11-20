@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 before_action :authenticate, only: [:edit, :update, :destroy]  
-validates :email, uniqueness, :true
+# validates :email, uniqueness, :true
 
   def index
     @user_all = User.all
@@ -66,6 +66,7 @@ validates :email, uniqueness, :true
   # end
 
 private
+
 
   def user_params
     params.require(:user).permit(:name, :email, :password)
