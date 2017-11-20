@@ -13,10 +13,10 @@ before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
  def create
     respond_to do |format|
-    current_user.comments.create(comment_params)
-    format.js
-    format.html {redirect_to posts_path}
-    end 
+      @comment = current_user.comments.create(comment_params)
+      format.js
+      format.html {redirect_to posts_path}
+      end 
   end
 
   # def create

@@ -3,6 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-	$('#update').on 'ajax:success', ->
-		console.log('worked')
-	# 	$('.comment').prepend(comment.comment)
+	

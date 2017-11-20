@@ -1,0 +1,9 @@
+<div class="comment">
+  <p class="padding"><%= comment.comment %></p>
+  <span class="small">Posted by: <%= comment.user.name %> </span>
+  <span class="small"><%= comment.created_at.to_formatted_s(:short) %></span>
+  <% if current_user == comment.user %>
+    <%= link_to image_tag("delete-icon.png", class: "format"), comment,  method: :delete %>
+    <%= link_to image_tag("edit.png", class: "format"),edit_comment_path(comment) %>
+  <% end %>
+</div>
