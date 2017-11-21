@@ -40,6 +40,7 @@ before_action :authenticate, only: [:edit, :update, :destroy]
   end
 
   def update
+    params[:user].delete(:password) if params[:user][:password].blank?
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to @user
