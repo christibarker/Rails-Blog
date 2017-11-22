@@ -5,4 +5,18 @@
   <!-- delete all posts -->
   <span class="small">Posted by: <%= post.user.name %> </span> 
   <span class="small">on <%= post.created_at.to_formatted_s(:short) %></span>
+   <div> 
+      <% if user_signed_in_? %>
+        <%= form_with model: @comment, class: "new_comment" do |f| %>
+          <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
+          <%= f.hidden_field :post_id, :value => post.id %>
+          <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary", id: "update", remote: true  %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="comments" id="post-<%= post.id %>">
+      <% post.comments.reverse.each do |comment| %>
+        <%= render comment %>
+      <% end %>
+    </div>
 </div>

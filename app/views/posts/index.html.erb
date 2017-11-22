@@ -23,20 +23,7 @@
       <div class="posts post_o padding">
         <% @post_all.each do |post| %>
           <%= render post %>
-          <div> 
-            <% if user_signed_in_? %>
-              <%= form_with model: @comment, class: "new_comment" do |f| %>
-                <%= f.text_field :comment, placeholder: 'comment', class: "form-control" %>
-                <%= f.hidden_field :post_id, :value => post.id %>
-                <%= f.submit "add", :disable_with => 'adding...', class: "btn btn-primary", id: "update", remote: true  %>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="comments">
-            <% post.comments.reverse.each do |comment| %>
-              <%= render comment %>
-            <% end %>
-          </div>
+           
         <% end %>
       </div>
     </div>
