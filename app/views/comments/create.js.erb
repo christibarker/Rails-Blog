@@ -1,2 +1,2 @@
-$('.comments').prepend("<%= j render @comment %>");
+$('#' + window.comment_section).prepend("<%= j render @comment %>");
 $('.new_comment').trigger('reset');

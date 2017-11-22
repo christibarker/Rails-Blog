@@ -2,10 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# $(document).on 'turbolinks:load', ->
-# 	$('.d_post').on 'ajax:sucess', ->
-# 		# console.log('worked')
-# 		$(this).closest('.post').remove
-
+$(document).on 'turbolinks:load', ->
+	$('.new_comment').on 'submit', ->
+		# console.log(this)
+		window.comment_section = $(this).closest('.post').find('.comments').attr('id')
 
 
